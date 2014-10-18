@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\ToyDefense.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{06B4F5FE-8CCF-40FE-BF35-2D528AB9D940}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\ToyDefense.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\ToyDefenseEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{D781C75D-521A-4963-9488-8621819E7304}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\ToyDefense">
+			<UniqueIdentifier>{AFF1E69E-E621-4EF5-A633-8FF4B8CBF857}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\ToyDefense\ToyDefense.Build.cs">
+			<Filter>Source\ToyDefense</Filter>
+		</None >
+		<Filter Include="Source\ToyDefense\Private">
+			<UniqueIdentifier>{F0EB894A-C754-4B30-A811-70FB2E4DE787}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Source\ToyDefense\Private\ToyDefense.cpp">
+			<Filter>Source\ToyDefense\Private</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Source\ToyDefense\Private\ToyDefenseGameMode.cpp">
+			<Filter>Source\ToyDefense\Private</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Source\ToyDefense\Private\ToyDefensePawn.cpp">
+			<Filter>Source\ToyDefense\Private</Filter>
+		</ClCompile >
+		<Filter Include="Source\ToyDefense\Public">
+			<UniqueIdentifier>{1B0E8719-5C1B-4EAA-84E3-6D7D58B5E1A3}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Source\ToyDefense\Public\ToyDefense.h">
+			<Filter>Source\ToyDefense\Public</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Source\ToyDefense\Public\ToyDefenseGameMode.h">
+			<Filter>Source\ToyDefense\Public</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Source\ToyDefense\Public\ToyDefensePawn.h">
+			<Filter>Source\ToyDefense\Public</Filter>
+		</ClInclude >
+		<Filter Include="Source\ToyDefense\Resources">
+			<UniqueIdentifier>{80D60E0F-2AA8-421D-8261-91EE2C3788DF}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source\ToyDefense\Resources\Windows">
+			<UniqueIdentifier>{116B406E-5BA6-44EF-9031-16699DA714D8}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\ToyDefense\Resources\Windows\ToyDefense.ico">
+			<Filter>Source\ToyDefense\Resources\Windows</Filter>
+		</None >
+		<ResourceCompile Include="..\..\Source\ToyDefense\Resources\Windows\ToyDefense.rc">
+			<Filter>Source\ToyDefense\Resources\Windows</Filter>
+		</ResourceCompile >
+	</ItemGroup>
+</Project>
