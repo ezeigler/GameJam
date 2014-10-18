@@ -2,6 +2,7 @@
 
 #include "ToyDefense.h"
 #include "ToyDefensePawn.h"
+#include "IHeadMountedDisplay.h"
 
 AToyDefensePawn::AToyDefensePawn(const class FPostConstructInitializeProperties& PCIP) 
 	: Super(PCIP)
@@ -37,7 +38,7 @@ AToyDefensePawn::AToyDefensePawn(const class FPostConstructInitializeProperties&
 
 	// Set handling parameters
 	Acceleration = 500.f;
-	TurnSpeed = 50.f;
+	TurnSpeed = 100.f;
 	MaxSpeed = 4000.f;
 	MinSpeed = 500.f;
 	CurrentForwardSpeed = 500.f;
@@ -78,8 +79,8 @@ void AToyDefensePawn::SetupPlayerInputComponent(class UInputComponent* InputComp
 
 	// Bind our control axis' to callback functions
 	InputComponent->BindAxis("Thrust", this, &AToyDefensePawn::ThrustInput);
-	InputComponent->BindAxis("MoveUp", this, &AToyDefensePawn::MoveUpInput);
-	InputComponent->BindAxis("MoveRight", this, &AToyDefensePawn::MoveRightInput);
+	InputComponent->BindAxis("MovePitch", this, &AToyDefensePawn::MovePitchInput);
+	InputComponent->BindAxis("MoveRoll", this, &AToyDefensePawn::MoveRollInput);
 }
 
 void AToyDefensePawn::ThrustInput(float Val)
@@ -94,7 +95,7 @@ void AToyDefensePawn::ThrustInput(float Val)
 	CurrentForwardSpeed = FMath::Clamp(NewForwardSpeed, MinSpeed, MaxSpeed);
 }
 
-void AToyDefensePawn::MoveUpInput(float Val)
+void AToyDefensePawn::MovePitchInput(float Val)
 {
 	// Target pitch speed is based in input
 	float TargetPitchSpeed = (Val * TurnSpeed * -1.f);
@@ -106,20 +107,20 @@ void AToyDefensePawn::MoveUpInput(float Val)
 	CurrentPitchSpeed = FMath::FInterpTo(CurrentPitchSpeed, TargetPitchSpeed, GetWorld()->GetDeltaSeconds(), 2.f);
 }
 
-void AToyDefensePawn::MoveRightInput(float Val)
+void AToyDefensePawn::MoveRollInput(float Val)
 {
 	// Target yaw speed is based on input
-	float TargetYawSpeed = (Val * TurnSpeed);
+	float TargetYawSpeed = 3 * (Val * TurnSpeed);
 
 	// Smoothly interpolate to target yaw speed
-	CurrentYawSpeed = FMath::FInterpTo(CurrentYawSpeed, TargetYawSpeed, GetWorld()->GetDeltaSeconds(), 2.f);
+	// CurrentYawSpeed = FMath::FInterpTo(CurrentYawSpeed, TargetYawSpeed, GetWorld()->GetDeltaSeconds(), 2.f);
 
 	// Is there any left/right input?
 	const bool bIsTurning = FMath::Abs(Val) > 0.2f;
 
 	// If turning, yaw value is used to influence roll
 	// If not turning, roll to reverse current roll value
-	float TargetRollSpeed = bIsTurning ? (CurrentYawSpeed * 0.5f) : (GetActorRotation().Roll * -2.f);
+	float TargetRollSpeed = Val * TurnSpeed;// bIsTurning ? FMath::FInterpTo(CurrentRollSpeed, (Val * TurnSpeed), GetWorld()->GetDeltaSeconds(), 20.f) : 0;
 
 	// Smoothly interpolate roll speed
 	CurrentRollSpeed = FMath::FInterpTo(CurrentRollSpeed, TargetRollSpeed, GetWorld()->GetDeltaSeconds(), 2.f);
