@@ -36,10 +36,10 @@ protected:
 	void ThrustInput(float Val);
 	
 	/** Bound to the vertical axis */
-	void MoveUpInput(float Val);
+	void MovePitchInput(float Val);
 
 	/** Bound to the horizontal axis */
-	void MoveRightInput(float Val);
+	void MoveRollInput(float Val);
 
 private:
 

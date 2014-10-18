@@ -10,3 +10,8 @@ AToyDefenseGameMode::AToyDefenseGameMode(const class FPostConstructInitializePro
 	// set default pawn class to our flying pawn
 	DefaultPawnClass = AToyDefensePawn::StaticClass();
 }
+
+void AToyDefenseGameMode::StartPlay()
+{
+	Super::StartPlay();
+}
